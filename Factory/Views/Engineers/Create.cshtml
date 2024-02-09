@@ -11,6 +11,9 @@
   @Html.LabelFor(model => model.EngineerName)
   @Html.TextBoxFor(model => model.EngineerName)
 
+  @Html.LabelFor(model => model.HireDate)
+  @Html.TextBoxFor(model => model.HireDate)
+
   <input type="submit" value="Add new engineer" />
 }
 <p>@Html.ActionLink("Show all engineers", "Index")</p>
