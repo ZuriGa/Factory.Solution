@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Factory.Models
 {
@@ -9,5 +10,7 @@ namespace Factory.Models
     public string MachineName { get; set; }
 
     public string Installed { get; set; }
+
+    public List<MachineEngineer> JoinEntities { get;}
   }
 }
