@@ -8,6 +8,6 @@ namespace Factory.Models
 
     public string MachineName { get; set; }
 
-    public int Installed { get; set; }
+    public string Installed { get; set; }
   }
 }
