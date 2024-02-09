@@ -8,11 +8,10 @@
 
 @using (Html.BeginForm())
 {
+  @Html.HiddenFor(model => model.HireDate)
+
   @Html.LabelFor(model => model.EngineerName)
   @Html.TextBoxFor(model => model.EngineerName)
-
-  @Html.LabelFor(model => model.HireDate)
-  @Html.TextBoxFor(model => model.HireDate)
 
   <input type="submit" value="Add new engineer" />
 }
