@@ -11,6 +11,6 @@ namespace Factory.Models
 
     public string Installed { get; set; }
 
-    public List<MachineEngineer> JoinEntities { get;}
+    public List<MachineEngineer> JoinEntities { get; set; }
   }
 }

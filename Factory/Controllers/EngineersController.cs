@@ -15,7 +15,7 @@ namespace Factory.Controllers
 
     public EngineersController(FactoryContext db)
     {
-      _db = db; 
+      _db = db;
     }
 
     public ActionResult Index()
@@ -39,11 +39,11 @@ namespace Factory.Controllers
 
     public ActionResult Details(int id)
     {
-      Engineer thisEngineer = _db.Engineers.
-                                  .Include(engineer => engineer.Machines)
-                                  .ThenInclude(engineer => engineer.JoinEntities)
+      Engineer thisEngineer = _db.Engineers
+                                  // .Include(engineer => engineer.Machines)
+                                  .Include(engineer => engineer.JoinEntities)
                                   .ThenInclude(join => join.Machine)
-                                  FirstOrDefault(engineer => engineer.EngineerId == id);
+                                  .FirstOrDefault(engineer => engineer.EngineerId == id);
       return View(thisEngineer);
     }
 
