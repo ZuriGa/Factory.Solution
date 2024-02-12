@@ -8,32 +8,41 @@
 
 <hr />
 
-<h4>Engineers</h4>
-@if (Model["engineers"].Length == 0)
-{
-    <p>No Engineers have been added yet!</p>
-}
-<ul>
-    @foreach (Engineer engineer in Model["engineers"])
+<div class="card">
+
+
+    <h4>Engineers</h4>
+    <hr />
+    @if (Model["engineers"].Length == 0)
     {
-        <li>@Html.ActionLink(@engineer.EngineerName, "Details", "Engineers", new { id = @engineer.EngineerId })</li>
+        <p>No Engineers have been added yet!</p>
     }
-</ul>
+    <ul>
+        @foreach (Engineer engineer in Model["engineers"])
+        {
+            <li>@Html.ActionLink(@engineer.EngineerName, "Details", "Engineers", new { id = @engineer.EngineerId })</li>
+        }
+    </ul>
+</div>
 <hr />
 
-<h4>Machine</h4>
-@if (Model["machines"].Length == 0)
-{
-    <p>No Machine have been added yet!</p>
-}
-<ul>
-    @foreach (Machine machine in Model["machines"])
+<div class="card">
+    <h4>Machine</h4>
+    <hr />
+    @if (Model["machines"].Length == 0)
     {
-        <li>@Html.ActionLink(@machine.MachineName, "Details", "Machines", new { id = @machine.MachineId })</li>
+        <p>No Machine have been added yet!</p>
     }
-</ul>
+    <ul>
+        @foreach (Machine machine in Model["machines"])
+        {
+            <li>@Html.ActionLink(@machine.MachineName, "Details", "Machines", new { id = @machine.MachineId })</li>
+        }
+    </ul>
+</div>
+
 
 <hr />
 
-<p>@Html.ActionLink("Manage engineers", "Index", "Engineers")</p>
-<p>@Html.ActionLink("Manage machines", "Index", "Machines")</p>
+<button type="button" class="btn btn-outline-warning btn-lg">@Html.ActionLink("Manage engineers", "Index", "Engineers")</button>
+<button type="button" class="btn btn-outline-warning btn-lg">@Html.ActionLink("Manage machines", "Index", "Machines")</button>

@@ -4,8 +4,10 @@
 
 @model Factory.Models.Machine
 
-<h2>Edit</h2>
+<div class="body-card">
 
+<h2>Edit</h2>
+<hr />
 <h4>Edit this Machine: @Html.DisplayFor(model => model.MachineName)</h4>
 
 @using (Html.BeginForm())
@@ -18,7 +20,9 @@
   @Html.LabelFor(model => model.Installed)
   @Html.EditorFor(model => model.Installed)
 
-  <input type="submit" value="Save" />
+  <input type="submit" value="Save" class="btn btn-warning btn-lg" />
 }
+<br />
+</div>
 
-<p>@Html.ActionLink("Back to list", "Index")</p>
+<button type="button" class="btn btn-warning btn-lg">@Html.ActionLink("Back to list", "Index")</button>

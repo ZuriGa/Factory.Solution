@@ -4,7 +4,10 @@
 
 @model Factory.Models.Engineer
 
+<div class="card"> 
+
 <h2>Add a machine</h2>
+<hr />
 
 <h4>Add a machine to this engineer:  @Html.DisplayFor(model => model.EngineerName)</h4>
 
@@ -15,8 +18,9 @@
   @Html.Label("Select a machine")
   @Html.DropDownList("MachineId")
 
-  <input type="submit" value="Save" />
+  <input type="submit" value="Save" class="btn btn-warning btn-lg" />
 }
-
-
-<p>@Html.ActionLink("Back to engineer list", "Index", "Engineers")</p>
+<br />
+</div>
+<br />
+<button type="button" class="btn btn-outline-warning btn-lg">@Html.ActionLink("Back to engineer list", "Index", "Engineers")</button>
