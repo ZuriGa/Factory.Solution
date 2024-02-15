@@ -11,7 +11,7 @@ namespace Factory.Models
     public string EngineerName { get; set; }
     public DateTime HireDate { get; set; } = DateTime.Now;
 
-    public List<MachineEngineer> JoinEntities { get; set; }
+    public List<EngineerMachine> JoinEntities { get; set; }
 
   }
 }

@@ -22,13 +22,13 @@
   {
     <h4>Machines the Engineer is licensed to repair:</h4>
     <ul>
-      @foreach (MachineEngineer join in Model.JoinEntities)
+      @foreach (EngineerMachine join in Model.JoinEntities)
       {
         <li>@join.Machine.MachineName</li>
 
         @using (Html.BeginForm("DeleteJoin", "Engineers"))
         {
-          @Html.Hidden("joinId", @join.MachineEngineerId)
+          @Html.Hidden("joinId", @join.EngineerMachineId)
           <input type="submit" value="Delete" class="btn btn-warning btn-lg" />
         }
       }

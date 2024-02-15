@@ -1,6 +1,6 @@
-using System;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
+using System;
 
 namespace Factory.Models
 {
@@ -12,6 +12,6 @@ namespace Factory.Models
     [Required(ErrorMessage = "Installation date is required")]
     public string Installed { get; set; }
 
-    public List<MachineEngineer> JoinEntities { get; set; }
+    public List<EngineerMachine> JoinEntities { get; set; }
   }
 }

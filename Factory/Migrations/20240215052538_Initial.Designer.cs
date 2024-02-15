@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Factory.Migrations
 {
     [DbContext(typeof(FactoryContext))]
-    [Migration("20240211002104_AddMachineEngineersUpdateJoinEntity")]
-    partial class AddMachineEngineersUpdateJoinEntity
+    [Migration("20240215052538_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,6 +28,7 @@ namespace Factory.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("EngineerName")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<DateTime>("HireDate")
@@ -38,26 +39,9 @@ namespace Factory.Migrations
                     b.ToTable("Engineers");
                 });
 
-            modelBuilder.Entity("Factory.Models.Machine", b =>
+            modelBuilder.Entity("Factory.Models.EngineerMachine", b =>
                 {
-                    b.Property<int>("MachineId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Installed")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("MachineName")
-                        .HasColumnType("longtext");
-
-                    b.HasKey("MachineId");
-
-                    b.ToTable("Machines");
-                });
-
-            modelBuilder.Entity("Factory.Models.MachineEngineer", b =>
-                {
-                    b.Property<int>("MachineEngineerId")
+                    b.Property<int>("EngineerMachineId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -67,16 +51,35 @@ namespace Factory.Migrations
                     b.Property<int>("MachineId")
                         .HasColumnType("int");
 
-                    b.HasKey("MachineEngineerId");
+                    b.HasKey("EngineerMachineId");
 
                     b.HasIndex("EngineerId");
 
                     b.HasIndex("MachineId");
 
-                    b.ToTable("MachineEngineers");
+                    b.ToTable("EngineerMachines");
                 });
 
-            modelBuilder.Entity("Factory.Models.MachineEngineer", b =>
+            modelBuilder.Entity("Factory.Models.Machine", b =>
+                {
+                    b.Property<int>("MachineId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Installed")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("MachineName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("MachineId");
+
+                    b.ToTable("Machines");
+                });
+
+            modelBuilder.Entity("Factory.Models.EngineerMachine", b =>
                 {
                     b.HasOne("Factory.Models.Engineer", "Engineer")
                         .WithMany("JoinEntities")
